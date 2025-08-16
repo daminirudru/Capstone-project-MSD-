@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Cafeteria - Skip the Queue, Order Smart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-utensils"></i>
+                <span>Smart Cafeteria</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#breakfast" onclick="filterMenu('breakfast')">Breakfast</a>
+                <a href="#snacks" onclick="filterMenu('snacks')">Snacks</a>
+                <a href="#drinks" onclick="filterMenu('drinks')">Drinks</a>
+                <a href="#meals" onclick="filterMenu('meals')">Meals</a>
+                <a href="#desserts" onclick="filterMenu('desserts')">Desserts</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search dishes..." id="searchInput" onkeyup="searchMenu()">
+                </div>
+                <button class="cart-icon" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <!-- Updated login button to navigate to login page -->
+                <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Skip the Queue. Order Smart, Eat Fresh.</h1>
+            <div class="hero-search">
+                <input type="text" placeholder="Search for dishes..." onkeyup="searchMenu(this.value)">
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterByType('all')">All</button>
+                <button class="filter-btn" onclick="filterByType('veg')">Veg</button>
+                <button class="filter-btn" onclick="filterByType('non-veg')">Non-Veg</button>
+                <button class="filter-btn" onclick="filterByType('popular')">Popular</button>
+                <button class="filter-btn" onclick="filterByType('new')">New</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section">
+        <h2 class="section-title">Our Fresh Menu</h2>
+        <div class="menu-grid" id="menuGrid">
+            <!-- Menu items will be populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Order Status Section -->
+    <section class="order-status">
+        <h2 class="status-title">Track Your Order</h2>
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-steps">
+                <div class="step active" id="step1">
+                    <div class="step-icon">1</div>
+                    <span>Order Placed</span>
+                </div>
+                <div class="step" id="step2">
+                    <div class="step-icon">2</div>
+                    <span>Preparing</span>
+                </div>
+                <div class="step" id="step3">
+                    <div class="step-icon">3</div>
+                    <span>Ready for Pickup</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Your Order</h2>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be populated by JavaScript -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                Total: $<span id="cartTotal">0.00</span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@smartcafeteria.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Campus Drive, University City</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#menu">Menu</a>
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact</a>
+                <a href="#faq">FAQ</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Smart Cafeteria. All rights reserved. | Eat Fresh, Save Time</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
